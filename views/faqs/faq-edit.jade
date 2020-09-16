@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+    div(class="content")
+        div(class="container-fluid")
+            
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") Edit FAQs
+                            p(class="card-category") Edit FAQs
+
+                        div(class="card-body")
+                            include ../alert
+
+                            form(action="/faqs/update/"+category.id method="post") 
+                                div(class="row")
+                                    div(class="col-md-4")
+                                        select(class="form-control" name="category")
+                                            option(disabled="disabled") Select Category
+                                            each cat,index in categories
+                                                option(value=cat.name selected=(category.category == cat.name) ? true : false)= cat.name
+
+                                    div(class="col-md-8")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating" ) Question
+                                            input(type="text" name="question" value=category.question class="form-control")                              
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating ckeditor-area") Answer
+                                            textarea(name="answer" cols="5" rows="5" class="form-control" id="answer")= category.answer
+                                            
+
+                                button(type="submit" class="btn btn-primary pull-right") Save
+
+                                div(class="clearfix")

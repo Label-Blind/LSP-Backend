@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    div(class="content")
+        div(class="container-fluid")
+            
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") Add Category
+                            p(class="card-category") Add new Category
+
+                        div(class="card-body")
+                            include ../alert
+
+                            form(action="/cms/save" method="post") 
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Title
+                                            input(type="text" name="title" class="form-control")  
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating" ) Sub Title
+                                            input(type="text" name="subtitle" class="form-control")                              
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating ckeditor-area") description
+                                            textarea(name="description" cols="5" rows="5" class="form-control" id="description")
+                                            script.
+                                                CKEDITOR.replace( 'description' );
+
+                                button(type="submit" class="btn btn-primary pull-right") Save
+
+                                div(class="clearfix")

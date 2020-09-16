@@ -1,0 +1,141 @@
+extends ../layout
+
+block content
+
+    div(class="content")
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") All Users 
+                            p(class="card-category") Users details
+
+                        div(class="card-body")
+                            include ../alert
+                            if (company.operator === "mitra")
+
+                                div(class="row")                            
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Name : 
+                                                    h3(class="card-text")= company.name
+                                
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                            div(class="card detail-card" )
+                                                div(class="card-header ")
+                                                    h4(class="card-title") FSM Rgistration No : 
+                                                        h3(class="card-text")= company.fsm_registration_no
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                            div(class="card detail-card" )
+                                                div(class="card-header ")
+                                                    h4(class="card-title") I am a... : 
+                                                        h3(class="card-text")= company.mitra_type
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Email : 
+                                                    h3(class="card-text")= company.email
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Mobile : 
+                                                    h3(class="card-text")= company.phone
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Operator Type: 
+                                                    h3(class="card-text")= company.operator
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                            div(class="card detail-card" )
+                                                div(class="card-header ")
+                                                    h4(class="card-title") Created at : 
+                                                        h3(class="card-text")= new Date(company.created_at).toDateString() 
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                            div(class="card detail-card" )
+                                                div(class="card-header ")
+                                                    h4(class="card-title") Last Login : 
+                                                        h3(class="card-text")= new Date(company.last_visited).toDateString() 
+
+                            else
+                                div(class="row")                            
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Company Name : 
+                                                    h3(class="card-text")= company.company_name
+                                
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") FSSAI Licence No : 
+                                                    h3(class="card-text")= company.fssai_licence_no
+                                
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                            div(class="card detail-card" )
+                                                div(class="card-header ")
+                                                    h4(class="card-title") Licence Type : 
+                                                        h3(class="card-text")= company.licence_type
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Are you a... : 
+                                                    h3(class="card-text")= company.profile
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title")  Employee Size : 
+                                                    h3(class="card-text")= company.employee_size
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Revenue : 
+                                                    h3(class="card-text")= company.revenue
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Retail Structure : 
+                                                    h3(class="card-text")= company.retail_structure
+                              
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Email : 
+                                                    h3(class="card-text")= company.email
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Mobile : 
+                                                    h3(class="card-text")= company.phone
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Operator Type: 
+                                                    h3(class="card-text")= company.operator
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                            div(class="card detail-card" )
+                                                div(class="card-header ")
+                                                    h4(class="card-title") Created at : 
+                                                        h3(class="card-text")= new Date(company.created_at).toDateString() 
+
+                                    div(class="col-lg-4 col-md-6 col-sm-6")
+                                            div(class="card detail-card" )
+                                                div(class="card-header ")
+                                                    h4(class="card-title") Last Login : 
+                                                        h3(class="card-text")= new Date(company.last_visited).toDateString() 
+
+                                

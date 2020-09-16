@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    div(class="content")
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") Site Settings
+                            p(class="card-category") Update website contents
+
+                        div(class="card-body")
+                            include alert
+
+                            form(action="/setttings/update-setting" method="post")
+                                div(class="row")
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Website
+                                            input(type="text" name="website" class="form-control") 
+
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Email
+                                            input(type="text" name="website" class="form-control") 
+
+                                div(class="row")
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Contact Number
+                                            input(type="text" name="website" class="form-control") 
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="") Address
+                                            textarea(name="address" class="form-control" rows="5") 
+
+                                button(type="submit" class="btn btn-primary pull-right") Save Setting
+
+                                div(class="clearfix")
+
+
+

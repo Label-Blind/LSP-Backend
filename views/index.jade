@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    title= "Welcome to Admin Panel"
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+
+  body
+    block content
+      .page-header.header-filter(style="background-image: url('https://rawgit.com/creativetimofficial/material-kit/master/assets/img/bg7.jpg'); background-size: cover; background-position: top center;")
+        .container
+          .row
+            .col-lg-4.col-md-6.ml-auto.mr-auto
+              .card.card-login
+                form.form(method='post', action='/login/authenticate')                   
+                  .card-header.card-header-primary.text-center
+                    h4.card-title Label Service Provider Admin
+                    |                 
+                  
+                  |   
+                  .card-body
+                    p.description.text-center 
+                      strong(style="font-size:20px") Create Your Own <span> Nutrition</span> Fact Labels
+
+                    p.description.text-center Nutrition Information Calculation, FSSAI-compliant Nutrition Fact Labels, Front-of-Pack Label.
+                  |               
+                  .footer.text-center
+                    a(type='submit' class="btn btn-primary btn-link btn-wd btn-lg" href="/login") Click Here for Login Page
+        |      
+        footer.footer.text-center
+          p
+            | Made by 
+            a(href='http://suraj.ueuo.com') Suraj Kumar
+
+      
+
+

@@ -1,0 +1,40 @@
+extends ../layout
+
+block content
+    div(class="content")
+        div(class="container-fluid")
+            
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") Edit Category
+                            p(class="card-category") Update Category 
+
+                        div(class="card-body")
+                            include ../alert
+
+                            form(action="/cms/update/"+cms._id method="post") 
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Name
+                                            input(type="text" name="title" value=cms.title class="form-control")                              
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Name
+                                            input(type="text" name="subtitle" value=cms.subtitle class="form-control")                              
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating ckeditor-area") description
+                                            textarea(name="description" cols="5" rows="5" class="form-control")= cms.description
+                                            script.
+                                                CKEDITOR.replace( 'description' );
+
+                                button(type="submit" class="btn btn-primary pull-right") Save
+
+                                div(class="clearfix")

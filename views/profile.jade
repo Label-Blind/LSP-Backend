@@ -1,0 +1,87 @@
+extends layout
+
+block content
+    div(class="content")
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-8")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") Edit Profile
+                            p(class="card-category") Complete your profile
+
+                        div(class="card-body")
+                            include alert
+
+                            form(action="/profile/update-profile" method="post") 
+                                div(class="row")
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") First Name
+                                            input(type="text" name="first_name" value=first_name class="form-control")
+
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Last Name
+                                            input(type="text" name="last_name" value=last_name class="form-control")
+
+                                div(class="row")   
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Email address
+                                            input(type="email" value=email class="form-control" readonly)
+
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Phone
+                                            input(type="text" name="phone" value=phone class="form-control")
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Address
+                                            textarea(name="address" cols="5" rows="5" class="form-control")= address
+
+                                button(type="submit" class="btn btn-primary pull-right") Update Profile
+
+                                div(class="clearfix")
+
+                div(class="col-md-4")
+                        div(class="card card-profile")
+                            div(class="card-avatar")
+                                a(href="javascript:;")
+                                    img(class="img" src="../public/images/users/"+profile style="height: 120px")
+                            
+                            div(class="upload-btn-wrapper")
+                                form(action="/profile/upload-profile" method="post" enctype="multipart/form-data")
+                                    button(class="btn btn-primary" type="button") Upload a file
+                                    input(type="file" name="profile_pic" accept='image/*' onchange="this.form.submit()")
+
+                            div(class="card-body")
+                                if (errormessage.length > 0) 
+                                    div.alert(class='alert-danger alert-dismissible')
+                                        button(type="button" class="close" data-hide="alert" data-dismiss="alert" aria-label="Close" style="right:-9px") 
+                                            span(aria-hidden="true") &times;
+                                        
+                                        p(style="width:245px")= errormessage 
+
+                                if (successmessage.length > 0) 
+                                    div.alert(class='alert-success alert-dismissible')
+                                        button(type="button" class="close" data-dismiss="alert" aria-label="Close") 
+                                            span(aria-hidden="true") &times;
+                                        p= successmessage 
+
+                                form(action="/profile/change-password" method="post")
+                                    div(class="row")
+                                        div(class="col-md-12")
+                                            div(class="form-group")
+                                                label(class="bmd-label-floating" style="left: 0") New Password
+                                                input(type="password" name="new_password" class="form-control" required )
+
+                                    div(class="row")
+                                        div(class="col-md-12")
+                                            div(class="form-group")
+                                                label(class="bmd-label-floating" style="left: 0") Confirm Password
+                                                input(type="password" name="confirm_password" class="form-control" required )
+                                    button(type="submit" class="btn btn-primary btn-round") Update
+

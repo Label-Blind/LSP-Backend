@@ -1,0 +1,61 @@
+extends layout
+
+block content
+    
+    div(class="content")
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-lg-3 col-md-6 col-sm-6")
+                    div(class="card card-stats")
+                        div(class="card-header card-header-success card-header-icon")
+                            div(class="card-icon")
+                                i(class="material-icons") peoples
+                            p(class="card-category") Total Uses
+                            h3(class="card-title")= totalUsers
+                                //- small GB
+                        div(class="card-footer")
+                            div(class="stats")
+                                i(class="material-icons text-success") link
+                                a(href="/users") Go to details...
+
+                div(class="col-lg-3 col-md-6 col-sm-6")
+                    div(class="card card-stats")
+                        div(class="card-header card-header-info card-header-icon")
+                            div(class="card-icon")
+                                i(class="material-icons") category
+                            p(class="card-category") Total Categories
+                            h3(class="card-title")= totalCategory
+                                //- small GB
+                        div(class="card-footer")
+                            div(class="stats")
+                                i(class="material-icons text-success") link
+                                a(href="/categories") Go to details...
+
+                div(class="col-lg-3 col-md-6 col-sm-6")
+                    div(class="card card-stats")
+                        div(class="card-header card-header-warning card-header-icon")
+                            div(class="card-icon")
+                                i(class="material-icons") peoples
+                            p(class="card-category") Completed Label
+                            h3(class="card-title")= completedLabels
+                                //- small GB
+                        div(class="card-footer")
+                            div(class="stats")
+                                i(class="material-icons text-success") link
+                                a(href="/users") Go to details...
+
+                div(class="col-lg-3 col-md-6 col-sm-6")
+                    div(class="card card-stats")
+                        div(class="card-header card-header-danger card-header-icon")
+                            div(class="card-icon")
+                                i(class="material-icons") peoples
+                            p(class="card-category") In-Complete Label
+                            h3(class="card-title")= incompletedLabels
+                                //- small GB
+                        div(class="card-footer")
+                            div(class="stats")
+                                i(class="material-icons text-success") link
+                                a(href="/users") Go to details...
+                        
+    
+               

@@ -1,0 +1,120 @@
+doctype html
+html(lang="en")
+    head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= title
+
+    link(rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon.png")
+    link(rel="icon" type="image/png" href="../assets/img/favicon.png")
+    link(rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css")
+    link(rel="stylesheet" href="/stylesheets/material-dashboard.css")
+    link(rel="stylesheet" href="/stylesheets/demo.css")
+    link(rel="stylesheet" href="/stylesheets/custom-style.css")
+    //- link(rel="stylesheet" href="https://cdn.quilljs.com/1.2.2/quill.bubble.css")
+    //- link(rel="stylesheet", href="https://cdn.quilljs.com/1.2.2/quill.snow.css")
+    script(src="/ckeditor/ckeditor.js")
+    body
+        div(class="wrapper")
+            div(class="sidebar" data-color="purple" data-background-color="white" data-image="/img/sidebar-1.jpg")
+                div(class="logo")
+                    a(href="/dashboard" class="simple-text logo-normal") LSP Admin
+                div(class="sidebar-wrapper")
+                    ul(class="nav")
+                        li(class= (currentUrl == '/dashboard')? 'nav-item active' : 'nav-item')
+                            a(class="nav-link" href="/dashboard")
+                                i(class="material-icons") dashboard
+                                p Dashboard
+
+                        li(class= (currentUrl == '/users')? 'nav-item active' : 'nav-item')
+                            a(class="nav-link" href="/users")
+                                i(class="material-icons") group
+                                p Manage Users
+
+                        li(class= (currentUrl == '/categories')? 'nav-item active' : 'nav-item')
+                            a(class="nav-link" href="/categories")
+                                i(class="material-icons") category
+                                p Manage Category
+
+                        li(class= (currentUrl == '/cms') ? 'nav-item active' : 'nav-item')
+                            a(class="nav-link" href="/cms")
+                                i(class="material-icons") note_add
+                                p Manage CMS
+
+                        li(class= (currentUrl == '/faqs/category')? 'nav-item active' : 'nav-item')
+                            a(class="nav-link" href="/faqs/category")
+                                i(class="material-icons") question_answer
+                                p Manage FAQs Category
+
+                        li(class= (currentUrl == '/faqs')? 'nav-item active' : 'nav-item')
+                            a(class="nav-link" href="/faqs")
+                                i(class="material-icons") question_answer
+                                p Manage FAQs
+
+                        li(class= (currentUrl == '/enquiries')? 'nav-item active' : 'nav-item')
+                            a(class="nav-link" href="/enquiries")
+                                i(class="material-icons") contact_support
+                                p Enquiry Lists
+                        //- li(class="nav-item")
+                        //-     a(class="nav-link" href="/profile")
+                        //-         i(class="material-icons") person
+                        //-         p Profile
+
+            div(class="main-panel")
+                nav(class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ")
+                    div(class="container-fluid")
+                        div(class="navbar-wrapper")
+                            div(class="navbar-minimize")
+                                button(id="minimizeSidebar" class="btn btn-just-icon btn-white btn-fab btn-round")
+                                    i(class="material-icons text_align-center visible-on-sidebar-regular") more_vert
+                                    i(class="material-icons design_bullet-list-67 visible-on-sidebar-mini") view_list
+                                    div(class="ripple-container")
+                            a(class="navbar-brand" href="/dashboard")= page_title
+                        button(class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation")
+                            span(class="sr-only") Toggle navigation
+                            span(class="navbar-toggler-icon icon-bar")
+                            span(class="navbar-toggler-icon icon-bar")
+                            span(class="navbar-toggler-icon icon-bar")
+                        div(class="collapse navbar-collapse justify-content-end")
+                            ul(class="navbar-nav")
+                                li(class="nav-item dropdown")
+                                    a(class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                                        i(class="material-icons") person
+                                        p(class="d-lg-none d-md-block")= Account
+                                    div(class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile")
+                                        a(class="dropdown-item" href="/profile") Profile
+                                        //- a(class="dropdown-item" href="/settings") Settings
+                                        div(class="dropdown-divider")
+                                        a(class="dropdown-item" href="/profile/logout") Log out
+
+                block content
+
+
+        script(src="/javascripts/core/jquery.min.js")
+        script(src="/javascripts/core/popper.min.js")
+        script(src="/javascripts/core/bootstrap-material-design.min.js")
+        script(src="/javascripts/plugins/perfect-scrollbar.jquery.min.js")
+        script(src="/javascripts/plugins/moment.min.js")
+        script(src="/javascripts/plugins/sweetalert2.js")
+        script(src="/javascripts/plugins/jquery.validate.min.js")
+        script(src="/javascripts/plugins/jquery.bootstrap-wizard.js")
+        script(src="/javascripts/plugins/bootstrap-selectpicker.js")
+        script(src="/javascripts/plugins/bootstrap-datetimepicker.min.js")
+        script(src="/javascripts/plugins/jquery.dataTables.min.js")
+        script(src="/javascripts/plugins/bootstrap-tagsinput.js")
+        script(src="/javascripts/plugins/jasny-bootstrap.min.js")
+        script(src="/javascripts/plugins/fullcalendar.min.js")
+        script(src="/javascripts/plugins/jquery-jvectormap.js")
+        script(src="/javascripts/plugins/nouislider.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js")
+        script(src="/javascripts/plugins/arrive.min.js")
+        script(src="/javascripts/plugins/chartist.min.js")
+        script(src="/javascripts/plugins/bootstrap-notify.js")
+        script(src="/javascripts/material-dashboard.js?v=2.1.2" type="text/javascript")
+        script(src="/javascripts/demo.js")
+        script(src="https://cdn.quilljs.com/1.2.2/quill.min.js")
+        script(src="https://cdn.rawgit.com/kensnyder/quill-image-resize-module/3411c9a7/image-resize.min.js")
+        script(src="/javascripts/custom-script.js")
+        
+            

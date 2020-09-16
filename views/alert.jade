@@ -1,0 +1,12 @@
+if (error.length > 0) 
+    div.alert(class='alert-danger alert-dismissible')
+        button(type="button" class="close" data-hide="alert" data-dismiss="alert" aria-label="Close") 
+            span(aria-hidden="true") &times;
+        
+        p= error 
+
+if (success.length > 0) 
+    div.alert(class='alert-success alert-dismissible')
+        button(type="button" class="close" data-dismiss="alert" aria-label="Close") 
+            span(aria-hidden="true") &times;
+        p= success 

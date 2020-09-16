@@ -1,0 +1,51 @@
+extends ../layout
+
+block content
+    
+    div(class="content")
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-12")
+                    a(href="/categories/add" class="pull-right btn btn-primary") Add New
+    
+                    div(class="upload-btn-wrapper pull-right")
+                        form(action="/categories/import" method="post" enctype="multipart/form-data")
+                            button(class="btn btn-primary" type="button") Import
+                            input(type="file" name="excel" onChange="this.form.submit()")
+                    
+
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") All Categories 
+                            p(class="card-category") category lists
+
+                        div(class="card-body")
+                            include ../alert
+                            div(class="material-datatables table-responsive")
+                                table(id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%")
+                                    thead(class="text-primary")
+                                        tr
+                                            th #
+                                            th Category Code
+                                            th Category Name
+                                            th Parent Category
+                                            th Description
+                                            th Action
+                                    
+                                    tbody
+                                        each category,index in categories
+                                            //- li= user
+                                            tr
+                                                td= index+1
+                                                td= category.code
+                                                td= category.name
+                                                td= category.parent 
+                                                td= category.description
+                                                td 
+                                                    a(href="/categories/edit/"+category._id class="btn btn-link btn-warning btn-just-icon" title="Edit Category") 
+                                                        i(class="material-icons") create
+                                                    a(href="/categories/delete/"+category._id class="btn btn-link btn-danger btn-just-icon" onclick="return confirm('Are You sure want to delete?');" title="Delete Category") 
+                                                        i(class="material-icons") delete
+                                                

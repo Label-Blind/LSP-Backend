@@ -1,0 +1,47 @@
+extends ../layout
+
+block content
+
+    div(class="content")
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") Enquiry Details 
+                            p(class="card-category") enquiry details
+
+                        div(class="card-body")
+                            include ../alert
+                            div(class="row")
+                                div(class="col-lg-4 col-md-6 col-sm-6")
+                                    div(class="card detail-card" )
+                                        div(class="card-header ")
+                                            h4(class="card-title") Name : 
+                                                h3(class="card-text")= enquiry.name
+                            
+                                div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Email : 
+                                                    h3(class="card-text")= enquiry.email
+                            
+                                div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Phone : 
+                                                    h3(class="card-text")= enquiry.phone
+
+                                div(class="col-lg-4 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title") Subject : 
+                                                    h3(class="card-text")= enquiry.subject
+
+                                div(class="col-lg-8 col-md-6 col-sm-6")
+                                        div(class="card detail-card" )
+                                            div(class="card-header ")
+                                                h4(class="card-title")  Message : 
+                                                    h3(class="card-text")= enquiry.message
+
+                                

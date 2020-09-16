@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+    div(class="content")
+        div(class="container-fluid")
+            
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") Add Category
+                            p(class="card-category") Add new Category
+
+                        div(class="card-body")
+                            include ../alert
+
+                            form(action="/categories/save" method="post") 
+                                div(class="row")
+                                    div(class="col-md-3")
+                                        div(class="form-group ")
+                                            //- label(class="bmd-label-floating") Select Category
+                                            select(class="form-control" name="parent")
+                                                option(disabled="disabled") Select Category
+                                                option(value="/") Parent Category
+                                                each category,index in categories
+                                                    option(value=category.parent+"/"+category.name)= category.name
+                                    
+                                    div(class="col-md-3")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Code
+                                            input(type="text" name="code" class="form-control")      
+
+                                    div(class="col-md-6")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") Name
+                                            input(type="text" name="name" class="form-control")                        
+
+                                div(class="row")
+                                    div(class="col-md-12")
+                                        div(class="form-group")
+                                            label(class="bmd-label-floating") description
+                                            textarea(name="description" cols="5" rows="5" class="form-control")
+
+                                button(type="submit" class="btn btn-primary pull-right") Save
+
+                                div(class="clearfix")

@@ -1,0 +1,85 @@
+extends ../layout
+
+block content
+
+    div(class="content")
+        div(class="container-fluid")
+            div(class="row")
+                div(class="col-md-12")
+                    div(class="card")
+                        div(class="card-header card-header-primary")
+                            h4(class="card-title") All Enquiries 
+                            p(class="card-category") Enquiry lists
+
+                        div(class="card-body")
+                            include ../alert
+                            div(class="table-responsive material-datatables")
+                                table(id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%")
+                                    thead(class=" text-primary")
+                                        tr
+                                            //- th #
+                                            th Id
+                                            th Name
+                                            th Email
+                                            th Phone
+                                            th Viewed
+                                            th Replied
+                                            th Action
+
+                                    tbody
+                                        each enquiry,index in enquiries
+                                            //- li= user
+                                            tr
+                                                //- td= index+1
+                                                td= enquiry._id
+                                                td= enquiry.name
+                                                td= enquiry.email
+                                                td= enquiry.phone
+                                                td
+                                                    if enquiry.viewed
+                                                        span(class="badge badge-success") Yes
+                                                    else
+                                                        span(class="badge badge-danger") No
+                                                td
+                                                    if enquiry.replied
+                                                        span(class="badge badge-success") Yes
+                                                    else
+                                                        span(class="badge badge-danger") No
+                                                td
+                                                    a(href="/enquiries/details/"+enquiry._id class="btn btn-link btn-warning btn-just-icon" title="View Details") 
+                                                        i(class="material-icons") visibility
+
+                                                    if enquiry.replied
+                                                        a(title="Replied" data-toggle="modal") 
+                                                            span(class="badge badge-primary disabled") Replied
+                                                    else
+                                                        a(href="/enquiries/details/"+enquiry._id title="Reply enquiry" data-toggle="modal" data-target="#basicModal"+enquiry._id) 
+                                                            span(class="badge badge-info") Reply
+
+                                                div(class="modal fade" id="basicModal"+enquiry._id tabindex="-1" role="dialog" aria-labelledby="basicModal"+enquiry._id aria-hidden="true")
+                                                    div(class="modal-dialog")
+                                                        div(class="modal-content")
+                                                            div(class="modal-header")
+                                                                h4(class="modal-title" id="myModalLabel") Reply Query
+                                                                button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                                                    span(aria-hidden="true") &times;
+                                                            div(class="modal-body")
+                                                                form(action="/enquiries/reply" method="post") 
+                                                                    div(class="row")
+                                                                        div(class="col-md-12")
+                                                                            div(class="form-group")
+                                                                                label(class="bmd-label-floating") Email
+                                                                                input(type="text" name="email" class="form-control" value=enquiry.email readonly)  
+
+                                                                    div(class="row")
+                                                                        div(class="col-md-12")
+                                                                            div(class="form-group")
+                                                                                label(class="bmd-label-floating" ) Message
+                                                                                textarea(name="message" class="form-control" rows="5") 
+
+                                                                    button(type="submit" class="btn btn-primary btn-sm pull-right") Reply
+                                                                    button(type="button" class="btn btn-default btn-sm" data-dismiss="modal") Close
+
+                                                                
+
+    

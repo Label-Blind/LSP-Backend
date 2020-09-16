@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    title= "Welcome to Admin Panel"
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+
+  body
+    block content
+      .page-header.header-filter(style="background-image: url('https://rawgit.com/creativetimofficial/material-kit/master/assets/img/bg7.jpg'); background-size: cover; background-position: top center;")
+        .container
+          .row
+            .col-lg-4.col-md-6.ml-auto.mr-auto
+              .card.card-login
+                form.form(method='post', action='/login/authenticate')                   
+                  .card-header.card-header-primary.text-center
+                    h4.card-title Login
+                    |                 
+                  p.description.text-center Or Be Classical
+                  |   
+                  if (error.length > 0) 
+                    div.alert(class='alert-danger alert-dismissible' style='margin:25px')
+                      button(type="button" class="close" data-hide="alert" data-dismiss="alert" aria-label="Close") 
+                        span(aria-hidden="true") &times;
+                      p= error 
+                  if (success.length > 0) 
+                    div.alert(class='alert-success alert-dismissible' style='margin:10px')
+                      button(type="button" class="close" data-dismiss="alert" aria-label="Close") 
+                        span(aria-hidden="true") &times;
+                      p= success 
+                  .card-body
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          i.material-icons mail
+                      |                   
+                      input.form-control(type='email', name="email" placeholder='*****@***.com')
+                    |                 
+                    .input-group
+                      .input-group-prepend
+                        span.input-group-text
+                          i.material-icons lock_outline
+                      |                   
+                      input.form-control(type='password', name="password" placeholder='***********')
+                      input(type='hidden', name="role" value='Admin')
+                  |               
+                  .footer.text-center
+                    button.btn.btn-primary.btn-link.btn-wd.btn-lg(type='submit') Sign In
+        |      
+        footer.footer.text-center
+          p
+            | Made by 
+            a(href='http://suraj.ueuo.com') Suraj Kumar
+
+      
+
+
